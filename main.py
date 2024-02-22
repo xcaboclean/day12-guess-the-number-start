@@ -13,6 +13,14 @@ from random import randint
 EASY_LEVEL_TURNS = 10
 HARD_LEVEL_TURNS = 5
 
+def set_difficulty():
+  level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+  if level == "easy":
+    return EASY_LEVEL_TURNS
+  elif level == "hard":
+    return HARD_LEVEL_TURNS
+  else:
+    return 0
 
 
 print("Welcome to the Number Guessing Game!")
