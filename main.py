@@ -22,22 +22,39 @@ def set_difficulty():
   else:
     return 0
 
-
-print("Welcome to the Number Guessing Game!")
-print("I'm thinking of a number between 1 and 100.")
-number = randint(0,100)
-attempts = 0
-print(f"Pssst, the correct answer is {number}")
-
-
-if difficulty == 'easy':
-  attempts = 5
-elif difficulty == 'hard':
-  attempts = 10
-else:
-  attempts = 0
+def number_guesing_game():
+  print("Welcome to the Number Guessing Game!")
+  print("I'm thinking of a number between 1 and 100.")
+  number = randint(0,100)
+  maximum_attempts = 0
+  print(f"Pssst, the correct answer is {number}")
+  difficulty =input("Choose a difficulty. Type 'easy' or 'hard':" )
+  if difficulty == 'easy':
+    maximum_attempts = 5
+  elif difficulty == 'hard':
+    maximum_attempts = 10
+  else:
+    print("Difficulty level not available")
+    maximum_attempts = 0
+    
+  print(f"You have {maximum_attempts} attempts remaining to guess the number.") 
+  guess = -1
+  turns = maximum_attempts
   
-while attempts:
-  print("")
+  while (guess != number) and (turns > 0):
+    guess = int(input("Make a guess: "))  
+        
+    if guess != number:
+      turns -=1
+      if guess<number:
+        print("Too low")
+      elif guess > number:
+        print("Too high")
+      print("Guess again.")
+    else:
+      print(f"You got it! The answer was {number}.")
+      
+  if turns == 0:
+    print("You've run out of guesses, you lose.")
 
- 
+number_guesing_game()
