@@ -29,10 +29,12 @@ def number_guesing_game():
   print("I'm thinking of a number between 1 and 100.")
   number = randint(0,100)
   maximum_attempts = 0
-  print(f"Pssst, the correct answer is {number}")
+  
+  #print(f"Pssst, the correct answer is {number}")
   maximum_attempts=set_difficulty()  
   print(f"You have {maximum_attempts} attempts remaining to guess the number.") 
   guess = -1
+  turns = maximum_attempts
   while (guess != number) and (turns > 0):
     guess = int(input("Make a guess: "))  
         
