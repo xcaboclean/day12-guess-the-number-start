@@ -13,6 +13,7 @@ from random import randint
 EASY_LEVEL_TURNS = 10
 HARD_LEVEL_TURNS = 5
 
+
 def set_difficulty():
   level = input("Choose a difficulty. Type 'easy' or 'hard': ")
   if level == "easy":
@@ -20,6 +21,7 @@ def set_difficulty():
   elif level == "hard":
     return HARD_LEVEL_TURNS
   else:
+    print("Difficulty level not available")
     return 0
 
 def number_guesing_game():
@@ -28,19 +30,9 @@ def number_guesing_game():
   number = randint(0,100)
   maximum_attempts = 0
   print(f"Pssst, the correct answer is {number}")
-  difficulty =input("Choose a difficulty. Type 'easy' or 'hard':" )
-  if difficulty == 'easy':
-    maximum_attempts = 5
-  elif difficulty == 'hard':
-    maximum_attempts = 10
-  else:
-    print("Difficulty level not available")
-    maximum_attempts = 0
-    
+  maximum_attempts=set_difficulty()  
   print(f"You have {maximum_attempts} attempts remaining to guess the number.") 
   guess = -1
-  turns = maximum_attempts
-  
   while (guess != number) and (turns > 0):
     guess = int(input("Make a guess: "))  
         
