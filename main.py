@@ -13,6 +13,17 @@ from random import randint
 EASY_LEVEL_TURNS = 10
 HARD_LEVEL_TURNS = 5
 
+def check_aswer(guess, number, turns):
+  if guess != number:
+    turns -=1
+    if guess<number:
+      print("Too low")
+    elif guess > number:
+      print("Too high")
+    print("Guess again.")
+  else:
+    print(f"You got it! The answer was {number}.")
+  
 
 def set_difficulty():
   level = input("Choose a difficulty. Type 'easy' or 'hard': ")
@@ -38,17 +49,9 @@ def number_guesing_game():
   while (guess != number) and (turns > 0):
     guess = int(input("Make a guess: "))  
         
-    if guess != number:
-      turns -=1
-      if guess<number:
-        print("Too low")
-      elif guess > number:
-        print("Too high")
-      print("Guess again.")
-    else:
-      print(f"You got it! The answer was {number}.")
+   
       
   if turns == 0:
     print("You've run out of guesses, you lose.")
 
-number_guesing_game()
+number_guesing_game()  
